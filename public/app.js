@@ -2,13 +2,16 @@ const init = function () {
   const button = document.querySelector('button');
   button.addEventListener('click', handleButtonClick);
 
+  const select = document.querySelector('select');
+  select.addEventListener('change', handleSelectChanged);
+
   const todosArray = JSON.parse(localStorage.getItem('todoList')) || [];
   populate(todosArray);
 }
 
-const populate = function (todos) {
-  todos.forEach(function(item){
-    addItem(item);
+  const populate = function (todos) {
+    todos.forEach(function(item){
+      addItem(item);
   })
   // this function needs to:
   // - loop through the array of todos, invoking addItem() for each todo item
